@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ThemeProvider from "react-bootstrap/ThemeProvider";
@@ -137,6 +138,12 @@ const About = () => {
           </div>
         </div>
       </div>
+=======
+const About = () => {
+  return (
+    <>
+      <h1>About</h1>
+>>>>>>> main
     </>
   );
 };

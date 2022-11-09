@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import * as React from "react";
 
 const Contact = () => {
@@ -104,6 +105,13 @@ const Contact = () => {
           </div>
         </div>
       </div>
+=======
+import React from "react";
+const Contact = () => {
+  return (
+    <>
+      <h2>Contact</h2>
+>>>>>>> main
     </>
   );
 };
