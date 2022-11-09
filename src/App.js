@@ -1,12 +1,11 @@
+import logo from "./logo.svg";
 import "./App.css";
-import Login from "./features/frontend/auth/Login";
-import Register from "./features/frontend/auth/Register";
+import FullLayout from "./layout/full-layout/FullLayout";
 
 const App = () => {
   return (
     <>
-      <Login />
-      {/* <Register /> */}
+      <FullLayout />
     </>
   );
 };
