@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { PureComponent } from 'react'
+import About from './features/frontend/about/About'
+import ImageGallary from './features/frontend/image-gallery/ImageGallery'
+import './App.css'
 
-function App() {
+const app = () => {
+  //const ProtectedRoute = ({ children }) => {
+  //  return sessionStorage.getItem('login') == 1 ? (
+  //    children
+  //  ) : (
+  //    <Navigate to="/login" />
+  //  )
+  //}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+      {/*<Routes>*/}
+      {/*<Route path="/*" element={<BlankLayout />}></Route>*/}
+      {/*<Route*/}
+      {/*//path="secured/*"*/}
+      {/*//element={<ProtectedRoute><FullLayout /></ProtectedRoute>}*/}
+      {/*//></Route>*/}
+      {/*</Routes>*/}
 
-export default App;
+      {/*<About />*/}
+      <ImageGallary />
+    </>
+  )
+}
+export default app
