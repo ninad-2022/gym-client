@@ -89,7 +89,7 @@ const rows = [
     "-",
     "-"
   ),
-  createData("FRIDAY", "Yoga", "Yoga", "Yoga", "-", "-", "-", "-"),
+  createData("FRIDAY", "Yoga", "Yoga", "Yoga", " - ", "-", "-", "-"),
   createData(
     "SATURDAY",
     "-",
