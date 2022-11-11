@@ -15,7 +15,6 @@ const CusLink = styled(NavLink)({
   backgroundColor: "#ed563b",
   transition: "all 0.3s",
   margin: "10px 0px",
-
   "&:hover": {
     backgroundColor: "#f9735b",
   },

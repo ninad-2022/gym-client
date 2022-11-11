@@ -147,7 +147,6 @@ const NavBar = () => {
                 LOGO
               </Typography>
             </CusLink>
-
             <Box sx={{ display: { xs: "none", md: "flex" }, mr: 4 }}>
               {routes.map(({ label, path }, i) => (
                 <CusLink
