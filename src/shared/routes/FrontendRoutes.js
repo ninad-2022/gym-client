@@ -23,12 +23,12 @@ const routes = [
     component: <Membership />,
   },
   {
-    label: "Image Gallary",
+    label: "Gallary",
     path: "/image-gallary",
     component: <ImageGallery />,
   },
   {
-    label: "Gym Schedule",
+    label: "Schedule",
     path: "/gym-schedule",
     component: <GymSchedule />,
   },
