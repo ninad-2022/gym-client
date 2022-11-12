@@ -17,7 +17,7 @@ const StyledTableCell = styled(TableCell)(() => ({
     backgroundColor: "#ed563d",
     color: "white",
   },
-
+  transition: ".5s linear",
   "&:hover": {
     backgroundColor: "#ed563d",
   },
@@ -36,6 +36,9 @@ const StyledTableRow = styled(TableRow)(() => ({
     backgroundColor: "#ed563d",
     //   height: "25px",
     borderRight: "1px solid white",
+  },
+  ":nth-last-child": {
+    borderRight: "10px solid #fff",
   },
 
   //   "&:hover": {
@@ -106,12 +109,15 @@ export default function Schedule() {
   return (
     <TableContainer
       component={Paper}
-      sx={{ backgroundColor: "black", height: "100vh" }}
+      sx={{ backgroundColor: "#232d39", height: "100vh" }}
     >
       <Typography variant="h3" align="center" color="#fff" padding="20px">
         GYM SCHEDULE
       </Typography>
-      <Table sx={{ minWidth: 1300 }} aria-label="customized table">
+      <Table
+        sx={{ maxWidth: 1300, margin: "auto" }}
+        aria-label="customized table"
+      >
         <TableHead>
           <TableRow>
             <StyledTableCell>Routine</StyledTableCell>

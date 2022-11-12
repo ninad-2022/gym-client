@@ -7,6 +7,7 @@ import About from "../../features/frontend/about/About";
 import Membership from "../../features/frontend/membership/Membership";
 import Contact from "../../features/frontend/contact/Contact";
 import ResponsiveDrawer from "./NavBar";
+import Schedule from "../../features/frontend/shedules/Schedule";
 const FullLayout = () => {
   return (
     <>
@@ -16,6 +17,7 @@ const FullLayout = () => {
         <Route path="/about" element={<About />} />;
         <Route path="/membership" element={<Membership />} />;
         <Route path="/contact" element={<Contact />} />;
+        <Route path="/schedule" element={<Schedule />} />;
       </Routes>
     </>
   );
