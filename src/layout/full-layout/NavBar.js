@@ -12,8 +12,24 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import routes from "../../shared/routes/FrontendRoutes";
+import { styled } from "@mui/styles";
+
+const CusLink = styled(NavLink)({
+  textDecoration: "none",
+  marginRight: "20px",
+  marginLeft: "20px",
+});
+
+const MinNavLink = styled(Link)({
+  textDecoration: "none",
+  color: "#232d39",
+
+  "&:hover": {
+    color: "#ed563b",
+  },
+});
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -35,10 +51,9 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ background: "rgba(0,0,0,0.3)" }}>
+    <AppBar position="static" sx={{ background: "rgba(250,250,250,1)" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Box
             sx={{
               display: "flex",
@@ -47,23 +62,24 @@ const NavBar = () => {
               width: "100%",
             }}
           >
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              LOGO
-            </Typography>
+            <CusLink to="/">
+              <Typography
+                variant="h6"
+                noWrap
+                sx={{
+                  mr: 2,
+                  ml: 4,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  letterSpacing: ".3rem",
+                  color: "#ed563b",
+                  textDecoration: "none",
+                }}
+              >
+                LOGO
+              </Typography>
+            </CusLink>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
@@ -72,7 +88,7 @@ const NavBar = () => {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="inherit"
+                sx={{ color: "#232d39" }}
               >
                 <MenuIcon />
               </IconButton>
@@ -95,42 +111,55 @@ const NavBar = () => {
                 }}
               >
                 {routes.map(({ label, path }, i) => (
-                  <Link to={path} key={path + i} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{label}</Typography>
-                  </Link>
+                  <MinNavLink
+                    to={path}
+                    key={path + i + label}
+                    onClick={handleCloseNavMenu}
+                  >
+                    <Typography
+                      textAlign="center"
+                      sx={{
+                        width: "200px",
+                        margin: "20px 0px",
+                      }}
+                    >
+                      {label}
+                    </Typography>
+                  </MinNavLink>
                 ))}
               </Menu>
             </Box>
-            {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href=""
-              sx={{
-                mr: 2,
-                display: { xs: "flex", md: "none" },
-                flexGrow: 1,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              LOGO
-            </Typography>
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <CusLink to="/">
+              <Typography
+                variant="h5"
+                noWrap
+                sx={{
+                  mr: 2,
+                  display: { xs: "flex", md: "none" },
+                  flexGrow: 1,
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  letterSpacing: ".3rem",
+                  color: "#ed563b",
+                  textDecoration: "none",
+                }}
+              >
+                LOGO
+              </Typography>
+            </CusLink>
+            <Box sx={{ display: { xs: "none", md: "flex" }, mr: 4 }}>
               {routes.map(({ label, path }, i) => (
-                <Link to={path}>
-                  <Button
-                    key={path + i}
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: "white", display: "block" }}
-                  >
-                    {label}
-                  </Button>
-                </Link>
+                <CusLink
+                  end
+                  key={label + i}
+                  to={path}
+                  style={({ isActive }) => ({
+                    width: "100",
+                    color: isActive ? "#ed563b" : "#232d39",
+                  })}
+                >
+                  {label}
+                </CusLink>
               ))}
             </Box>
           </Box>
