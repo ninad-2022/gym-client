@@ -1,13 +1,10 @@
 import "./App.css";
-import Membership from "./features/frontend/membership/Membership";
-import FullLayout from "./layout/full-layout/FullLayout";
-import { AttributionRounded } from "@mui/icons-material";
-import About from "./features/frontend/about/About";
+import BlankLayout from "./layout/blank-layout/BlankLayout";
 
 function App() {
   return (
     <>
-      <FullLayout />
+      <BlankLayout />
     </>
   );
 }
