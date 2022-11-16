@@ -27,6 +27,7 @@ const H6 = styled("h6")({
   color: "#fff",
   letterSpacing: "0.5px",
   marginBottom: 0,
+  textTransform: "uppercase",
 });
 
 const H2 = styled("h2")({
@@ -65,7 +66,7 @@ const Home = () => {
         }}
       >
         <Box sx={{ textAlign: "center" }}>
-          <H6>WORK HARDER, GET STRONGER</H6>
+          <H6>The Healthy Way of life</H6>
           <H2>
             easy with our <span style={{ color: "#ed563b" }}>gym</span>
           </H2>
