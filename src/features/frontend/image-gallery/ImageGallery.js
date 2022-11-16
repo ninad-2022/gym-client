@@ -1,6 +1,4 @@
 import React from 'react'
-import { ImageList, Typography } from '@mui/material'
-import ImageListItem from '@mui/material/ImageListItem'
 import Grid from '@mui/material/Grid'
 
 //import itemData from './itemData'
