@@ -18,7 +18,7 @@ export default [
   },
   {
     title: "FIT",
-    price: "₹5000/ 3 Month",
+    price: "₹5000/ 3 Months",
     facilities: [
       "GYM",
       "CARDIO",
@@ -35,7 +35,7 @@ export default [
   },
   {
     title: "PRO",
-    price: "₹7000/ 6 Month",
+    price: "₹7000/ 6 Months",
     facilities: [
       "GYM",
       "CARDIO",
@@ -52,7 +52,7 @@ export default [
   },
   {
     title: "EXPERT",
-    price: "₹10,000/ 12 Month",
+    price: "₹10,000/ 12 Months",
     facilities: [
       "GYM",
       "CARDIO",

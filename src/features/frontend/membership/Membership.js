@@ -8,12 +8,12 @@ import { NavLink } from "react-router-dom";
 
 const Membership = () => {
   const StyledDiv = styled("div")(() => ({
-    width: "300px",
+    width: "280px",
     border: "1px solid #999",
     borderRadius: "15px 0",
     padding: 5,
-    margin: 15,
-    padding: "15px",
+    margin: 12,
+    padding: "10px",
     color: "#eee",
     transition: "0.3s linear",
     boxShadow: "5px 5px 15px rgba(0,0,0,0.6)",
@@ -97,6 +97,7 @@ const Membership = () => {
                     textDecoration: "underline",
                     textDecorationThickness: "1px",
                     textUnderlineOffset: "15px",
+                    fontSize: "30px",
                   }}
                 >
                   {val.price}
