@@ -2,25 +2,65 @@ import React from 'react'
 import { ImageList, Typography } from '@mui/material'
 import ImageListItem from '@mui/material/ImageListItem'
 import Grid from '@mui/material/Grid'
+
 //import itemData from './itemData'
 import Box from '@mui/material/Box'
 
 const ImageGallary = () => {
   return (
-    <Box
-      sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-    >
-      <Grid container columns={{ xs: 4, sm: 12, md: 12 }}>
-        {Array.isArray(itemData) &&
-          itemData.map(({ img }, i) => {
-            return (
-              <Grid item xs={12} sm={4} md={3} key={i}>
-                <img src={img} style={{ width: '100%', height: '100%' }} />
-              </Grid>
-            )
-          })}
-      </Grid>
-    </Box>
+    <>
+      <Box>
+        <Box
+          sx={{
+            color: '#ed563b',
+            fontWeight: '700',
+            letterSpacing: '2.5px',
+            fontSize: 40,
+            p: 4,
+          }}
+          align="center"
+        >
+          GALLARY
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Grid
+            container
+            maxWidth="1400px"
+            mx="auto"
+            columns={{ xs: 4, sm: 12, md: 12 }}
+          >
+            {Array.isArray(itemData) &&
+              itemData.map(({ img }, i) => {
+                return (
+                  <Grid
+                    item
+                    xs={12}
+                    sm={4}
+                    md={3}
+                    key={i}
+                    sx={{ border: 3, borderColor: 'White' }}
+                  >
+                    <img
+                      src={img}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        p: 5,
+                      }}
+                    />
+                  </Grid>
+                )
+              })}
+          </Grid>
+        </Box>
+      </Box>
+    </>
   )
 }
 
