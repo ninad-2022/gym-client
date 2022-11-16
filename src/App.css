@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -53,42 +53,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-/* Contact us styling */
-
-/* .box_contact {
-  margin-top: 5px;
-  background-color: #282c34;
-}
-
-.contact {
-  font-family: sans-serif;
-  background-color: black;
-  font-size: 48px;
-  line-height: 1;
-  color: #ffffff;
-  padding-bottom: 75px;
-  padding-top: 75px;
-  text-align: center;
-}
-
-.bg_contact {
-  background-size: cover;
-  background-image: url(https://img.freepik.com/premium-photo/orange-world-map-dark-background_590041-61.jpg?w=360);
-  padding: auto;
-}
-
-.col_contact {
-  background-color: whitesmoke;
-  justify-content: space-around;
-}
-
-.contact_form {
-  margin-top: 5px;
-  opacity: 90%;
-} */
-
-.backgroundImage {
-  opacity: 0.2;
 }

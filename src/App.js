@@ -1,16 +1,19 @@
 import "./App.css";
+import BmiCalculator from "./features/frontend/bmi-calculator/BmiCalculator";
+import Membership from "./features/frontend/membership/Membership";
 import FullLayout from "./layout/full-layout/FullLayout";
-import Contact from "./features/frontend/contact/Contact";
+import Card from "./features/frontend/membership/Card";
+import { AttributionRounded } from "@mui/icons-material";
 import About from "./features/frontend/about/About";
-import ImageGallary from "./features/frontend/image-gallery/ImageGallery";
 
 function App() {
   return (
     <>
-      {/* <FullLayout /> */}
-      <About />
-      {/* <ImageGallary /> */}
-      <Contact />
+      {/* <BmiCalculator /> */}
+      {/* <Membership /> */}
+      <FullLayout />
+      {/* <Card /> */}
+      {/* <About /> */}
     </>
   );
 }
