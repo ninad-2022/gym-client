@@ -49,19 +49,19 @@ const Membership = () => {
       <Typography
         sx={{
           paddingTop: "25px",
-          color: "#eee",
+          color: "#fff",
           fontWeight: "700",
           letterSpacing: "1.5px",
         }}
         variant="h3"
         align="center"
       >
-        MEMBERSHIP PLANS
+        MEMBERSHIP <span style={{ color: "#ed563b" }}>PLAN'S</span>
       </Typography>
       <Typography
         sx={{
           paddingTop: "10px",
-          color: "#eee",
+          color: "#fff",
           fontSize: "18px",
         }}
         align="center"
@@ -101,9 +101,7 @@ const Membership = () => {
                 >
                   {val.price}
                 </Typography>
-                {/* <Typography
-                  sx={{ borderBottom: "2px solid rgba(35,45,57)" }}
-                ></Typography> */}
+
                 <Typography variant="h7">
                   {val.facilities.map((val, i) => {
                     return (
