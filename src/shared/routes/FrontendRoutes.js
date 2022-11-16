@@ -17,6 +17,7 @@ const routes = [
     path: "/about",
     component: <About />,
   },
+
   {
     label: "Membership",
     path: "/membership",
