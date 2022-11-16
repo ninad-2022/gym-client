@@ -18,6 +18,7 @@ const StyledTableCell = styled(TableCell)(() => ({
     color: "white",
   },
   transition: ".5s linear",
+
   "&:hover": {
     backgroundColor: "#ed563d",
   },
@@ -110,6 +111,7 @@ export default function Schedule() {
     <TableContainer
       component={Paper}
       sx={{ backgroundColor: "#232d39", height: "100vh" }}
+      xs={12}
     >
       <Typography variant="h3" align="center" color="#fff" padding="20px">
         GYM SCHEDULE
