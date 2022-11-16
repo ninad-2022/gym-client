@@ -5,6 +5,7 @@ import GymSchedule from "../../features/frontend/gym-schedule/GymSchedule";
 import Home from "../../features/frontend/home/Home";
 import ImageGallery from "../../features/frontend/image-gallery/ImageGallery";
 import Membership from "../../features/frontend/membership/Membership";
+import Schedule from "../../features/frontend/shedules/Schedule";
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     label: "Contact Us",
     path: "/contact",
     component: <Contact />,
+  },
+  {
+    label: "Contact Us",
+    path: "/contact",
+    component: <Schedule />,
   },
 ];
 
