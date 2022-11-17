@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
-import FullLayout from "./layout/full-layout/FullLayout";
+import BlankLayout from "./layout/blank-layout/BlankLayout";
 
 const App = () => {
   return (
     <>
-      <FullLayout />
+      <BlankLayout />
     </>
   );
 };
