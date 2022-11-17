@@ -12,7 +12,13 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
+// import {Na} from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useNavigate, NavLink } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import AuthService from "../../../services/AuthServices";
+import { addUser } from "../../../app/slices/auhtSlice";
 
 function Copyright(props) {
   return (
@@ -35,13 +41,32 @@ function Copyright(props) {
 const theme = createTheme();
 
 const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    AuthService.userLogin(user)
+      .then((response) => {
+        alert("Login Success");
+        dispatch(addUser(response.data.data));
+        navigate("/secured");
+      })
+      .catch((err) => {
+        const message = err.response
+          ? err.response.data.message
+          : "Could not login";
+        alert(message);
+      });
   };
 
   return (
@@ -78,6 +103,8 @@ const Login = () => {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value={user.email}
+                onChange={handleChange}
               />
               <TextField
                 margin="normal"
@@ -88,6 +115,8 @@ const Login = () => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={user.password}
+                onChange={handleChange}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -108,9 +137,9 @@ const Login = () => {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <NavLink to="/register" variant="body2">
                     {"Don't have an account? Sign Up"}
-                  </Link>
+                  </NavLink>
                 </Grid>
               </Grid>
             </Box>

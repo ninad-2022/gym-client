@@ -12,7 +12,10 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
+import UserServices from "../../../services/UserServices";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -35,13 +38,52 @@ function Copyright(props) {
 const theme = createTheme();
 
 const Register = () => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    name: {
+      first: "",
+      last: "",
+    },
+    mobile: "",
+    email: "",
+    password: "",
+    role: "customer",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  const handleNameChange = (e) => {
+    const { name, value } = e.target;
+
+    if (user?.name)
+      setUser({ ...user, name: { ...user?.name, [name]: value } });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    console.log("User", user);
+
+    const fd = new FormData();
+    fd.append("name.first", user.name?.first);
+    fd.append("name.last", user.name?.last);
+    fd.append("email", user.email);
+    fd.append("password", user.password);
+    fd.append("role", user.role);
+
+    UserServices.createUser(fd)
+      .then((response) => {
+        const message = response.data.message || "created";
+        alert(message);
+
+        navigate("/");
+      })
+      .catch((err) => {
+        const message = err.response.data.message || "Not Created";
+        alert(message);
+      });
   };
 
   return (
@@ -73,11 +115,13 @@ const Register = () => {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     autoComplete="given-name"
-                    name="firstName"
+                    name="first"
                     required
                     fullWidth
                     id="firstName"
                     label="First Name"
+                    value={user.name?.first}
+                    onChange={handleNameChange}
                     autoFocus
                   />
                 </Grid>
@@ -85,10 +129,12 @@ const Register = () => {
                   <TextField
                     required
                     fullWidth
+                    name="last"
                     id="lastName"
                     label="Last Name"
-                    name="lastName"
                     autoComplete="family-name"
+                    value={user.name?.last}
+                    onChange={handleNameChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -99,6 +145,20 @@ const Register = () => {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    value={user.email}
+                    onChange={handleChange}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="mobile"
+                    label="Mobile Address"
+                    name="mobile"
+                    autoComplete="mobile"
+                    value={user.mobile}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -110,6 +170,8 @@ const Register = () => {
                     type="password"
                     id="password"
                     autoComplete="new-password"
+                    value={user.password}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>

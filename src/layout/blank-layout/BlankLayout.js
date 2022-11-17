@@ -10,6 +10,8 @@ import ResponsiveDrawer from "./NavBar";
 import ImageGallery from "../../features/frontend/image-gallery/ImageGallery";
 import GymSchedule from "../../features/frontend/gym-schedule/GymSchedule";
 import frontEndRoutes from "../../shared/routes/FrontendRoutes";
+import Login from "../../features/frontend/auth/Login";
+import Register from "../../features/frontend/auth/Register";
 
 const BlankLayout = () => {
   return (
@@ -21,6 +23,8 @@ const BlankLayout = () => {
             <Route path={path} element={component} key={component + path + i} />
           );
         })}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </>
   );
