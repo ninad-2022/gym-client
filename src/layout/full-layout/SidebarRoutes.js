@@ -10,14 +10,9 @@ const SidebarRoutes = (props) => {
     <>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          {/* {Array.isArray(routes) &&
-            routes.map(({ path, component }, i) => (
-              <Route key={path + "-" + i} path={path} element={component} />
-            ))} */}
-
           {Array.isArray(routes) &&
             routes.map(({ path, component }, i) => (
-              <Route key={path + "_" + i} path={path} element={component} />
+              <Route key={path + "-" + i} path={path} element={component} />
             ))}
         </Routes>
       </Suspense>
