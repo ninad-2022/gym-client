@@ -17,11 +17,13 @@ class AuthService {
   static validateToken() {
     return API.post(endpoints.api.auth.validateToken, {});
   }
-  // static refreshToken() {
-  //   const refresh = sessionStorage.getItem("refresh");
-  //   if (!refresh) return Promise.reject("Token not available");
-  //   return API.post(endpoints.api.auth.refreshToken, { refresh });
-  // }
+
+  static refreshToken() {
+    const refresh = sessionStorage.getItem("refresh");
+    if (!refresh) return Promise.reject("Token not available");
+    // passing refresh token ot the body
+    return API.post(endpoints.api.auth.refreshToken, { refresh });
+  }
 }
 
 export default AuthService;
