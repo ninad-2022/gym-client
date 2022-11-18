@@ -57,7 +57,6 @@ const Register = () => {
 
   const handleNameChange = (e) => {
     const { name, value } = e.target;
-
     if (user?.name)
       setUser({ ...user, name: { ...user?.name, [name]: value } });
   };
@@ -72,6 +71,7 @@ const Register = () => {
     fd.append("email", user.email);
     fd.append("password", user.password);
     fd.append("role", user.role);
+    fd.append("mobile", user.mobile);
 
     UserServices.createUser(fd)
       .then((response) => {
