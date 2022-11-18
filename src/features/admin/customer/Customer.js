@@ -1,7 +1,12 @@
 import React from "react";
+import CustomerList from "./CustomerList";
 
 const Customer = () => {
-  return <div>Customer</div>;
+  return (
+    <>
+      <CustomerList />
+    </>
+  );
 };
 
 export default Customer;
