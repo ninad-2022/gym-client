@@ -18,7 +18,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import AuthService from "../../../services/AuthServices";
-import { addUser } from "../../../app/slices/auhtSlice";
+import { addUser } from "../../../app/slices/authSlice";
 
 function Copyright(props) {
   return (

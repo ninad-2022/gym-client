@@ -4,7 +4,7 @@ import FullLayout from "./layout/full-layout/FullLayout";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import BlankLayout from "./layout/blank-layout/BlankLayout";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, selectUser } from "./app/slices/auhtSlice";
+import { addUser, selectUser } from "./app/slices/authSlice";
 import { useEffect } from "react";
 import AuthService from "./services/AuthServices";
 
