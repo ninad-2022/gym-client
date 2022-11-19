@@ -23,7 +23,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SidebarRoutes from "./SidebarRoutes";
 import SidebarMenu from "./SidebarMenu";
-import { removeUser } from "../../app/slices/auhtSlice";
+import { removeUser } from "../../app/slices/authSlice";
 
 const drawerWidth = 240;
 
