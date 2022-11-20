@@ -15,6 +15,7 @@ import MemContext from "./MemContext";
 import axios from "axios";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
+import MembershipServices from "../../../services/MembershipService";
 
 const MembershipForm = () => {
   const { open, handleClose, operation, initialMembership, loadMemberships } =
@@ -57,8 +58,8 @@ const MembershipForm = () => {
     //   fd.append(prop, membership[prop]);
 
     if (operation == "edit") {
-      axios
-        .put(`http://localhost:8888/v1/card/${membership._id}`, membership)
+      //update the membership
+      MembershipServices.updateMembership(membership._id, membership)
         .then((response) => {
           loadMemberships();
           handleClose();
@@ -68,9 +69,8 @@ const MembershipForm = () => {
           alert("could not updated");
         });
     } else {
-      // create the user
-      axios
-        .post(`http://localhost:8888/v1/card`, membership)
+      // create the membership
+      MembershipServices.createMembership(membership)
         .then((response) => {
           loadMemberships();
           handleClose();
@@ -115,7 +115,7 @@ const MembershipForm = () => {
           variant="outlined"
           label="Facilities"
           // name="facilites"
-          value={membership.facilites}
+          // value={membership}
           onChange={handleFacilityChange}
         />
         <Button
@@ -126,6 +126,9 @@ const MembershipForm = () => {
         >
           Add
         </Button>
+      </Grid>
+      <Grid item xs={12}>
+        {membership.facilites.map((faci) => faci).join(",")}
       </Grid>
       <Grid item xs={12}>
         <Button variant="contained" color="primary" onClick={handleSubmit}>

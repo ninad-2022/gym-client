@@ -7,6 +7,12 @@ export default {
       delete: "/users/",
       getAll: "/users/",
     },
+    membership: {
+      create: "/membership",
+      update: "/membership/",
+      delete: "/membership/",
+      getAll: "/membership",
+    },
     auth: {
       userLogin: "/auth/login",
       validateToken: "/auth/validate-token",

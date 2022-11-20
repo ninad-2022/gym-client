@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import MemContext from "./MemContext";
 import { Typography } from "@mui/material";
 import AddEditMembership from "./AddEditMembership";
+import MembershipServices from "../../../services/MembershipService";
 
 const MembershipList = () => {
   const [memberships, setMemberships] = useState([]);
@@ -31,13 +32,20 @@ const MembershipList = () => {
   };
 
   const loadMemberships = () => {
-    axios
-      .get("http://localhost:8888/v1/card")
-      .then((response) => {
-        setMemberships(response.data.data);
-        // console.log(response);
+    // axios
+    //   .get("http://localhost:8888/v1/card")
+    //   .then((response) => {
+    //     setMemberships(response.data.data);
+    //     // console.log(response);
+    //   })
+    //   .catch(console.log);
+    MembershipServices.getAllMembership()
+      .then((responce) => {
+        setMemberships(responce?.data?.data);
       })
-      .catch(console.log);
+      .catch((err) => {
+        console.error(err);
+      });
   };
   useEffect(() => {
     loadMemberships();
@@ -55,8 +63,7 @@ const MembershipList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`http://localhost:8888/v1/card/${id}`)
+        MembershipServices.deleteMembership(id)
           .then((response) => {
             loadMemberships();
             Swal.fire("Deleted!", "Your record has been deleted.", "success");
@@ -89,7 +96,9 @@ const MembershipList = () => {
         filter: true,
         sort: true,
         customBodyRender: (value) => (
-          <Typography>{value.map((faci) => faci).join(",")}</Typography>
+          <Typography textTransform="uppercase">
+            {value.map((faci) => faci).join(",")}
+          </Typography>
         ),
       },
     },

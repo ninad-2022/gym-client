@@ -11,7 +11,7 @@ const Customers = lazy(() => import("../../features/admin/customer/Customer"));
 const MembershipList = lazy(() =>
   import("../../features/admin/membership/MembershipList")
 );
-const Trainer = lazy(() => import("../../features/admin/trainer/Trainer"));
+const Trainer = lazy(() => import("../../features/admin/trainers/Trainer"));
 
 // import Dashboard from "../../features/admin/dashboard/Dashboard";
 // import Trainer from "../../features/admin/trainer/Trainer";
