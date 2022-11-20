@@ -19,11 +19,11 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SidebarRoutes from "./SidebarRoutes";
 import SidebarMenu from "./SidebarMenu";
-import { removeUser } from "../../app/slices/authSlice";
+import { removeUser, selectUser } from "../../app/slices/authSlice";
 
 const drawerWidth = 240;
 
@@ -93,6 +93,10 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function MiniDrawer() {
+  const getUserFromRedux = useSelector(selectUser);
+  console.log("redux user: ", getUserFromRedux);
+
+  const { name, email } = getUserFromRedux;
   const theme = useTheme();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -261,7 +265,20 @@ export default function MiniDrawer() {
               color="inherit"
             >
               <AccountCircle />
-              <span>Omkar kale</span>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  ml: "6px",
+                }}
+              >
+                <span style={{ fontSize: "15px" }}>
+                  {name.first} {name.last}
+                </span>
+
+                <span style={{ fontSize: "13px", color: "gray" }}>{email}</span>
+              </Box>
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
