@@ -78,10 +78,10 @@ const Home = () => {
               alignItems: "center",
             }}
           >
-            <CusLink end to="/" style={{ width: "150px" }}>
+            <CusLink to="/login" style={{ width: "150px" }}>
               Login
             </CusLink>
-            <CusLink end to="/" style={{ width: "150px" }}>
+            <CusLink to="/register" style={{ width: "150px" }}>
               Register
             </CusLink>
           </Box>
@@ -92,5 +92,3 @@ const Home = () => {
 };
 
 export default Home;
-
-
