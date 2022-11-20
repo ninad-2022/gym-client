@@ -222,16 +222,20 @@ export default function MiniDrawer() {
     <Box sx={{ display: "fixed" }}>
       <CssBaseline />
 
-      <AppBar position="fixed" open={open} sx={{ backgroundColor: "orange" }}>
+      <AppBar
+        position="fixed"
+        open={open}
+        sx={{ backgroundColor: "rgba(250,250,250,1)", color: "black" }}
+      >
         <Toolbar>
           <IconButton
-            color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
             sx={{
               marginRight: 5,
               ...(open && { display: "none" }),
+              color: "#232d39",
             }}
           >
             <MenuIcon />
@@ -240,31 +244,13 @@ export default function MiniDrawer() {
             variant="h6"
             noWrap
             component="div"
-            // sx={{ display: { xs: "none", sm: "block" } }}
+            sx={{ color: "#ed563b" }}
           >
             GymBro
           </Typography>
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            {/* <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton> */}
             <IconButton
               size="large"
               edge="end"
@@ -275,6 +261,7 @@ export default function MiniDrawer() {
               color="inherit"
             >
               <AccountCircle />
+              <span>Omkar kale</span>
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>

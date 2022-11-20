@@ -24,14 +24,11 @@ const SidebarMenu = ({ open }) => {
               >
                 <NavLink
                   end
-                  to={
-                    path
-                    // == "rooms" && loggedUser.role === "customer"
-                    //   ? "/rooms"
-                    //   : path
-                  }
+                  to={path}
                   style={({ isActive }) => ({
-                    color: isActive ? "#000" : "#777",
+                    width: "100",
+                    color: isActive ? "#ed563b" : "#232d39",
+                    textDecoration: "none",
                   })}
                 >
                   <ListItemButton
