@@ -12,35 +12,56 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
-// import {Na} from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import AuthService from "../../../services/AuthServices";
 import { addUser } from "../../../app/slices/authSlice";
+import { NavLink } from "react-router-dom";
+import { styled } from "@mui/material/styles";
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+// function Copyright(props) {
+//   return (
+//     <Typography
+//       variant="body2"
+//       color="text.secondary"
+//       align="center"
+//       {...props}
+//     >
+//       {"Copyright © "}
+//       <Link color="inherit" href="https://mui.com/">
+//         Your Website
+//       </Link>{" "}
+//       {new Date().getFullYear()}
+//       {"."}
+//     </Typography>
+//   );
+// }
 
 const theme = createTheme();
 
 const Login = () => {
+  const StyledLink = styled(NavLink)(() => ({
+    cursor: "pointer",
+    textDecoration: "none",
+    color: "#232d39",
+    fontSize: "17px",
+  }));
+
+  const StyledButton = styled(NavLink)(() => ({
+    width: "100%",
+    padding: "8px",
+    cursor: "pointer",
+    textDecoration: "none",
+    color: "#eee",
+    fontSize: "18px",
+    borderRadius: "10px",
+    backgroundColor: "#ed563d",
+    display: "block",
+    textAlign: "center",
+  }));
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [user, setUser] = useState({
@@ -80,12 +101,13 @@ const Login = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              padding: "15px",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "orangeRed" }}>
+            <Avatar sx={{ m: 1, bgcolor: "#ed563b" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography sx={{ color: "#ed563b" }} variant="h5">
               Login
             </Typography>
             <Box
@@ -119,32 +141,24 @@ const Login = () => {
                 onChange={handleChange}
               />
               <FormControlLabel
+                sx={{ display: "block" }}
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, backgroundColor: "orangeRed" }}
-              >
-                Sign In
-              </Button>
+              <StyledButton onClick={handleSubmit}>Sign In</StyledButton>
               <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
+                <Grid item>
+                  <StyledLink>Forgot password?</StyledLink>
                 </Grid>
                 <Grid item>
-                  <NavLink to="/register" variant="body2">
+                  <StyledLink to="/register">
                     {"Don't have an account? Sign Up"}
-                  </NavLink>
+                  </StyledLink>
                 </Grid>
               </Grid>
             </Box>
           </Box>
-          <Copyright sx={{ mt: 8, mb: 4 }} />
+          {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
         </Paper>
       </Container>
     </ThemeProvider>

@@ -15,29 +15,51 @@ import Paper from "@mui/material/Paper";
 import UserServices from "../../../services/UserServices";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
+import { styled } from "@mui/material/styles";
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+// function Copyright(props) {
+//   return (
+//     <Typography
+//       variant="body2"
+//       color="text.secondary"
+//       align="center"
+//       {...props}
+//     >
+//       {"Copyright © "}
+//       <Link color="inherit" href="https://mui.com/">
+//         Your Website
+//       </Link>{" "}
+//       {new Date().getFullYear()}
+//       {"."}
+//     </Typography>
+//   );
+// }
 
 const theme = createTheme();
 
 const Register = () => {
+  const StyledLink = styled(NavLink)(() => ({
+    cursor: "pointer",
+    textDecoration: "none",
+    color: "#232d39",
+    fontSize: "17px",
+  }));
+
+  const StyledButton = styled(NavLink)(() => ({
+    width: "100%",
+    padding: "8px",
+    cursor: "pointer",
+    textDecoration: "none",
+    color: "#eee",
+    fontSize: "18px",
+    borderRadius: "10px",
+    backgroundColor: "#232d39",
+    display: "block",
+    textAlign: "center",
+    margin: "8px 0",
+  }));
+
   const navigate = useNavigate();
   const [user, setUser] = useState({
     name: {
@@ -57,6 +79,7 @@ const Register = () => {
 
   const handleNameChange = (e) => {
     const { name, value } = e.target;
+
     if (user?.name)
       setUser({ ...user, name: { ...user?.name, [name]: value } });
   };
@@ -88,21 +111,22 @@ const Register = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="sm">
         <Paper>
           <CssBaseline />
           <Box
             sx={{
-              marginTop: 8,
+              marginTop: 2,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              padding: "10px 30px",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "orangeRed" }}>
+            <Avatar sx={{ m: 1, bgcolor: "#232d39" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography sx={{ color: "#232d39" }} variant="h5">
               Register
             </Typography>
             <Box
@@ -154,7 +178,7 @@ const Register = () => {
                     required
                     fullWidth
                     id="mobile"
-                    label="Mobile Address"
+                    label="Mobile Number"
                     name="mobile"
                     autoComplete="mobile"
                     value={user.mobile}
@@ -176,6 +200,7 @@ const Register = () => {
                 </Grid>
                 <Grid item xs={12}>
                   <FormControlLabel
+                    sx={{ color: "#232d39" }}
                     control={
                       <Checkbox value="allowExtraEmails" color="primary" />
                     }
@@ -183,24 +208,17 @@ const Register = () => {
                   />
                 </Grid>
               </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, backgroundColor: "orangered" }}
-              >
-                Register
-              </Button>
+              <StyledButton onClick={handleSubmit}>Register</StyledButton>
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <StyledLink to="/login">
                     Already have an account? Sign in
-                  </Link>
+                  </StyledLink>
                 </Grid>
               </Grid>
             </Box>
           </Box>
-          <Copyright sx={{ mt: 5 }} />
+          {/* <Copyright sx={{ mt: 5 }} /> */}
         </Paper>
       </Container>
     </ThemeProvider>
