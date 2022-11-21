@@ -13,6 +13,12 @@ export default {
       delete: "/membership/",
       getAll: "/membership",
     },
+    contactus: {
+      create: "/contactus",
+      update: "/contactus/",
+      delete: "/contactus/",
+      getAll: "/contactus",
+    },
     auth: {
       userLogin: "/auth/login",
       validateToken: "/auth/validate-token",
