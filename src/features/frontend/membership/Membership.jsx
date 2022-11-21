@@ -120,7 +120,7 @@ const Membership = () => {
                   })}
                 </Typography>
                 <div style={{ display: "flex", textAlign: "center" }}>
-                  <StyledButton to="/">
+                  <StyledButton to="/register">
                     <div>Register Here</div>
                   </StyledButton>
                 </div>
