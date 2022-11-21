@@ -11,14 +11,15 @@ import {
 
 import ListItemIcon from "@mui/material/ListItemIcon";
 import SendIcon from "@mui/icons-material/Send";
+import { useState } from "react";
 
 const Contact = () => {
   return (
-    <Box>
+    <Box sx={{ backgroundColor: "#232d39" }}>
       <Box
         sx={{
           color: "#ed563b",
-          fontWeight: "700",
+          fontWeight: "1000",
           letterSpacing: "2.5px",
           fontSize: 40,
           p: 4,
@@ -101,6 +102,7 @@ const Contact = () => {
                 <Grid xs={12} sm={6} item>
                   <TextField
                     label="First Name"
+                    name="first_name"
                     placeholder="Enter first name"
                     varient="outlined"
                     fullWidth
@@ -110,6 +112,7 @@ const Contact = () => {
                 <Grid xs={12} sm={6} item>
                   <TextField
                     label="Last Name"
+                    name="last_name"
                     placeholder="Enter last name"
                     varient="outlined"
                     fullWidth
@@ -120,6 +123,7 @@ const Contact = () => {
                   <TextField
                     type="email"
                     label="Email"
+                    name="email"
                     placeholder="Enter email"
                     varient="outlined"
                     fullWidth
@@ -130,6 +134,7 @@ const Contact = () => {
                   <TextField
                     type="number"
                     label="Phone"
+                    name="phone"
                     placeholder="Enter phone number"
                     varient="outlined"
                     fullWidth
@@ -139,6 +144,7 @@ const Contact = () => {
                 <Grid xs={12} item>
                   <TextField
                     label="Message"
+                    name="message"
                     multiline
                     rows={4}
                     placeholder="Enter message"

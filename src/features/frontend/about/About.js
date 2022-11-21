@@ -7,7 +7,7 @@ const About = () => {
       <Box
         sx={{
           color: "#ed563b",
-          fontWeight: "700",
+          fontWeight: "1000",
           letterSpacing: "2.5px",
           fontSize: 40,
           p: 4,
