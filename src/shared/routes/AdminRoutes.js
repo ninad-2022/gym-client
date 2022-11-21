@@ -11,7 +11,9 @@ const Customers = lazy(() => import("../../features/admin/customer/Customer"));
 const MembershipList = lazy(() =>
   import("../../features/admin/membership/MembershipList")
 );
-const Trainer = lazy(() => import("../../features/admin/trainers/Trainer"));
+const ContactUs = lazy(() =>
+  import("../../features/admin/contactus/Contactus")
+);
 
 // import Dashboard from "../../features/admin/dashboard/Dashboard";
 // import Trainer from "../../features/admin/trainer/Trainer";
@@ -49,10 +51,10 @@ export default [
   },
 
   {
-    label: "Trainer",
-    path: "trainer",
+    label: "Enquiry",
+    path: "contactus",
     showInMenu: true,
-    component: <Trainer />,
+    component: <ContactUs />,
     icon: <TrainerIcon />,
     role: ["superadmin", "admin"],
     // hasSubRoutes: true,
