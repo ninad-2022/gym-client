@@ -100,8 +100,7 @@ const Register = () => {
       .then((response) => {
         const message = response.data.message || "created";
         alert(message);
-
-        navigate("/");
+        navigate("/login");
       })
       .catch((err) => {
         const message = err.response.data.message || "Not Created";
