@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   _id: "",
+  role: "",
 };
 
 const authSlice = createSlice({
@@ -12,7 +13,7 @@ const authSlice = createSlice({
       return action.payload;
     },
     removeUser: () => {
-      return { _id: "" };
+      return { _id: "", role: "" };
     },
   },
 });

@@ -32,13 +32,6 @@ const MembershipList = () => {
   };
 
   const loadMemberships = () => {
-    // axios
-    //   .get("http://localhost:8888/v1/card")
-    //   .then((response) => {
-    //     setMemberships(response.data.data);
-    //     // console.log(response);
-    //   })
-    //   .catch(console.log);
     MembershipServices.getAllMembership()
       .then((responce) => {
         setMemberships(responce?.data?.data);
@@ -50,7 +43,7 @@ const MembershipList = () => {
   useEffect(() => {
     loadMemberships();
   }, []);
-  console.log("Membership");
+  // console.log("Membership");
 
   const deleteMembership = (id) => {
     Swal.fire({
