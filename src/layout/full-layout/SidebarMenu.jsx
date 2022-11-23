@@ -8,14 +8,18 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import routes from "../../shared/routes/AdminRoutes";
 import { NavLink } from "react-router-dom";
+import { selectUser } from "../../app/slices/authSlice";
+import { useSelector } from "react-redux";
+
 const SidebarMenu = ({ open }) => {
+  const loggedUser = useSelector(selectUser);
   return (
     <>
       <List>
         {Array.isArray(routes) &&
           routes
             .filter((route) => route.showInMenu)
-            // .filter((route) => route.role.includes(loggedUser.role))
+            .filter((route) => route.role.includes(loggedUser.role))
             .map(({ path, label, icon }, index) => (
               <ListItem
                 key={path + "-" + index}

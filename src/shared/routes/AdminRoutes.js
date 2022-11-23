@@ -16,7 +16,7 @@ const ContactUs = lazy(() =>
 );
 
 // import Dashboard from "../../features/admin/dashboard/Dashboard";
-// import Trainer from "../../features/admin/trainer/Trainer";
+// import ContactUs from "../../features/admin/contactus/Contactus";
 // import Customers from "../../features/admin/customer/Customer";
 // import MembershipList from "../../features/admin/membership/MembershipList";
 
@@ -28,7 +28,7 @@ export default [
     component: <Dashboard />,
     icon: <DashboardIcon />,
     role: ["superadmin", "admin", "customer"],
-    // hasSubRoutes: false,
+    hasSubRoutes: false,
   },
 
   {
@@ -38,7 +38,7 @@ export default [
     component: <Customers />,
     icon: <UsersIcon />,
     role: ["superadmin", "admin"],
-    // hasSubRoutes: false,
+    hasSubRoutes: false,
   },
   {
     label: "Membership",
@@ -47,7 +47,7 @@ export default [
     component: <MembershipList />,
     icon: <MembersIcon />,
     role: ["superadmin", "admin"],
-    // hasSubRoutes: true,
+    hasSubRoutes: false,
   },
 
   {
@@ -57,6 +57,6 @@ export default [
     component: <ContactUs />,
     icon: <TrainerIcon />,
     role: ["superadmin", "admin"],
-    // hasSubRoutes: true,
+    hasSubRoutes: false,
   },
 ];

@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
-import plans from "./plans";
+// import plans from "./plans";
 import { styled } from "@mui/material/styles";
 import { Button, Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import { NavLink } from "react-router-dom";
+import MembershipServices from "../../../services/MembershipService";
 
 const Membership = () => {
+  const [plans, setPlans] = useState([]);
+  console.log("PLa", plans);
+
+  const AllMembership = () => {
+    MembershipServices.getAllMembership()
+      .then((res) => {
+        setPlans(res?.data?.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    AllMembership();
+  }, []);
+
   const StyledDiv = styled("div")(() => ({
     width: "280px",
     border: "1px solid #999",
@@ -78,56 +96,57 @@ const Membership = () => {
           transition: "0.5s ease",
         }}
       >
-        {plans.map((val, i) => {
-          return (
-            <>
-              <StyledDiv>
-                <Typography
-                  align="center"
-                  variant="h5"
-                  sx={{ marginBottom: "10px" }}
-                >
-                  {val.title}
-                </Typography>
-                <Typography
-                  align="center"
-                  variant="h4"
-                  sx={{
-                    marginBottom: "10px",
-                    textDecoration: "underline",
-                    textDecorationThickness: "1px",
-                    textUnderlineOffset: "15px",
-                    fontSize: "30px",
-                  }}
-                >
-                  {val.price}
-                </Typography>
+        {Array.isArray(plans) &&
+          plans.map((val, i) => {
+            return (
+              <>
+                <StyledDiv>
+                  <Typography
+                    align="center"
+                    variant="h5"
+                    sx={{ marginBottom: "10px" }}
+                  >
+                    {val.title}
+                  </Typography>
+                  <Typography
+                    align="center"
+                    variant="h4"
+                    sx={{
+                      marginBottom: "10px",
+                      textDecoration: "underline",
+                      textDecorationThickness: "1px",
+                      textUnderlineOffset: "15px",
+                      fontSize: "30px",
+                    }}
+                  >
+                    {val.price}
+                  </Typography>
 
-                <Typography variant="h7">
-                  {val.facilities.map((val, i) => {
-                    return (
-                      <ul
-                        style={{
-                          display: "flex",
-                          listStyle: "none",
-                          alignItems: "center",
-                        }}
-                      >
-                        <CheckIcon sx={{ marginRight: "8px" }} />
-                        <li key={val + i}>{val}</li>
-                      </ul>
-                    );
-                  })}
-                </Typography>
-                <div style={{ display: "flex", textAlign: "center" }}>
-                  <StyledButton to="/register">
-                    <div>Register Here</div>
-                  </StyledButton>
-                </div>
-              </StyledDiv>
-            </>
-          );
-        })}
+                  <Typography variant="h7">
+                    {val.facilites.map((val, i) => {
+                      return (
+                        <ul
+                          style={{
+                            display: "flex",
+                            listStyle: "none",
+                            alignItems: "center",
+                          }}
+                        >
+                          <CheckIcon sx={{ marginRight: "8px" }} />
+                          <li key={val + i}>{val}</li>
+                        </ul>
+                      );
+                    })}
+                  </Typography>
+                  <div style={{ display: "flex", textAlign: "center" }}>
+                    <StyledButton to="/register">
+                      <div>Register Here</div>
+                    </StyledButton>
+                  </div>
+                </StyledDiv>
+              </>
+            );
+          })}
       </div>
     </section>
   );

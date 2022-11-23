@@ -1,23 +1,23 @@
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import routes from "../../shared/routes/AdminRoutes";
-// import { useSelector } from "react-redux";
-// import { selectUser } from "../../app/slices/authSlice";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../app/slices/authSlice";
 
 const SidebarRoutes = (props) => {
-  //   const loggedUser = useSelector(selectUser);
+  const loggedUser = useSelector(selectUser);
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      {/* <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           {Array.isArray(routes) &&
             routes.map(({ path, component }, i) => (
               <Route key={path + "-" + i} path={path} element={component} />
             ))}
         </Routes>
-      </Suspense>
+      </Suspense> */}
 
-      {/* <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           {Array.isArray(routes) &&
             routes
@@ -30,7 +30,7 @@ const SidebarRoutes = (props) => {
                 />
               ))}
         </Routes>
-      </Suspense> */}
+      </Suspense>
     </>
   );
 };
