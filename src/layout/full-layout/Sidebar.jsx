@@ -265,7 +265,7 @@ export default function MiniDrawer() {
               color="inherit"
             >
               <AccountCircle />
-              <Box
+              {/* <Box
                 sx={{
                   display: "flex",
                   flexDirection: "column",
@@ -278,7 +278,7 @@ export default function MiniDrawer() {
                 </span>
 
                 <span style={{ fontSize: "13px", color: "gray" }}>{email}</span>
-              </Box>
+              </Box> */}
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
