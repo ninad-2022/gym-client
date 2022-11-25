@@ -6,46 +6,44 @@ import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Swal from "sweetalert2";
-import MemContext from "./MemContext";
-import { Typography } from "@mui/material";
-import AddEditMembership from "./AddEditMembership";
-import MembershipServices from "../../../services/MembershipService";
+import TesContext from "./TesContext";
+import AddEditTest from "./AddEditTest";
 
-const MembershipList = () => {
-  const [memberships, setMemberships] = useState([]);
+const TestList = () => {
+  const [testimonials, setTestimonials] = useState([]);
   const [open, setOpen] = useState(false);
   const [operation, setOperation] = useState("add");
-  const [initialMembership, setInitialMembership] = useState({});
+  const [initialTestimonial, setInitialTestimonial] = useState({});
 
   const handleClose = () => setOpen(false);
 
-  const addMembership = () => {
-    setInitialMembership({});
+  const addTestimonial = () => {
+    setInitialTestimonial({});
     setOperation("add");
     setOpen(true);
   };
 
-  const editMembership = (u) => {
-    setInitialMembership(u);
+  const editTestimonial = (u) => {
+    setInitialTestimonial(u);
     setOperation("edit");
     setOpen(true);
   };
 
-  const loadMemberships = () => {
-    MembershipServices.getAllMembership()
-      .then((responce) => {
-        setMemberships(responce?.data?.data);
+  const loadTestimonials = () => {
+    axios
+      .get("http://localhost:8888/v1/testimonials")
+      .then((response) => {
+        setTestimonials(response.data.data);
+        // console.log(response);
       })
-      .catch((err) => {
-        console.error(err);
-      });
+      .catch(console.log);
   };
-  useEffect(() => {
-    loadMemberships();
-  }, []);
-  // console.log("Membership");
 
-  const deleteMembership = (id) => {
+  useEffect(() => {
+    loadTestimonials();
+  }, []);
+
+  const deleteTestimonial = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -56,9 +54,10 @@ const MembershipList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        MembershipServices.deleteMembership(id)
+        axios
+          .delete(`http://localhost:8888/v1/testimonials/${id}`)
           .then((response) => {
-            loadMemberships();
+            loadTestimonials();
             Swal.fire("Deleted!", "Your record has been deleted.", "success");
           })
           .catch((err) => {
@@ -75,25 +74,20 @@ const MembershipList = () => {
 
   const columns = [
     {
-      name: "title",
-      label: "Title",
+      name: "name",
+      label: "Name",
     },
     {
-      name: "price",
-      label: "Price/Month",
+      name: "age",
+      label: "Age",
     },
     {
-      name: "facilites",
-      label: "Facilities",
-      options: {
-        filter: true,
-        sort: true,
-        customBodyRender: (value) => (
-          <Typography textTransform="uppercase">
-            {value.map((faci) => faci).join(",")}
-          </Typography>
-        ),
-      },
+      name: "designation",
+      label: "Designation",
+    },
+    {
+      name: "description",
+      label: "Description",
     },
     {
       name: "action",
@@ -102,18 +96,18 @@ const MembershipList = () => {
         sort: false,
         filter: false,
         customBodyRenderLite: (index) => {
-          const membership = memberships[index];
+          const testimonial = testimonials[index];
           return (
             <>
               <IconButton
                 color="primary"
-                onClick={() => editMembership(membership)}
+                onClick={() => editTestimonial(testimonial)}
               >
                 <EditIcon />
               </IconButton>
               <IconButton
                 color="error"
-                onClick={() => deleteMembership(membership?._id)}
+                onClick={() => deleteTestimonial(testimonial?._id)}
               >
                 <DeleteIcon />
               </IconButton>
@@ -126,29 +120,25 @@ const MembershipList = () => {
 
   return (
     <>
-      <Button onClick={addMembership} variant="contained" color="primary">
+      <Button onClick={addTestimonial} variant="contained" color="primary">
         New +
       </Button>
 
-      <MemContext.Provider
+      <TesContext.Provider
         value={{
           open: open,
           operation: operation,
           handleClose: handleClose,
-          initialMembership,
-          loadMemberships,
+          initialTestimonial,
+          loadTestimonials,
         }}
       >
-        <AddEditMembership />
-      </MemContext.Provider>
+        <AddEditTest />
+      </TesContext.Provider>
 
-      <Muidatatable
-        title="Membership List"
-        data={memberships}
-        columns={columns}
-      />
+      <Muidatatable title=" List" data={testimonials} columns={columns} />
     </>
   );
 };
 
-export default MembershipList;
+export default TestList;
