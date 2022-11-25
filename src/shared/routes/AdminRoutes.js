@@ -14,6 +14,9 @@ const MembershipList = lazy(() =>
 const ContactUs = lazy(() =>
   import("../../features/admin/contactus/Contactus")
 );
+const Registered = lazy(() =>
+  import("../../features/admin/registered/Registered")
+);
 
 // import Dashboard from "../../features/admin/dashboard/Dashboard";
 // import ContactUs from "../../features/admin/contactus/Contactus";
@@ -56,6 +59,15 @@ export default [
     showInMenu: true,
     component: <ContactUs />,
     icon: <TrainerIcon />,
+    role: ["superadmin", "admin"],
+    hasSubRoutes: false,
+  },
+  {
+    label: "Registered",
+    path: "register",
+    showInMenu: true,
+    component: <Registered />,
+    icon: <UsersIcon />,
     role: ["superadmin", "admin"],
     hasSubRoutes: false,
   },

@@ -1,17 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material";
+import {
+  FormControl,
+  FormControlLabel,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select,
+} from "@mui/material";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
-import { useSelector } from "react-redux";
-import { selectUser } from "../../../app/slices/authSlice";
+import { useSelector, useDispatch } from "react-redux";
 import MembershipServices from "../../../services/MembershipService";
+import Checkbox from "@mui/material/Checkbox";
+import FormGroup from "@mui/material/FormGroup";
+import FormLabel from "@mui/material/FormLabel";
+import RegisterServices from "../../../services/RegisterService";
+import { removeUser, selectUser } from "../../../app/slices/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const getUserFromRedux = useSelector(selectUser);
   const { name, email, mobile } = getUserFromRedux;
 
   const [plans, setPlans] = useState([]);
-  console.log("PLa", plans);
+  // console.log("PLa", plans);
+
+  const [selected, setSelected] = useState({
+    name: name,
+    email: email,
+    mobile: mobile,
+    pack: "",
+  });
+
+  const handleLogout = () => {
+    dispatch(removeUser());
+    sessionStorage.clear();
+    navigate("/");
+  };
 
   const AllMembership = () => {
     MembershipServices.getAllMembership()
@@ -26,16 +55,21 @@ const Dashboard = () => {
   useEffect(() => {
     AllMembership();
   }, []);
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setUser({ ...user, [name]: value });
-  // };
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setSelected({ ...selected, pack: value });
+  };
 
+  const pak = selected.pack;
   const handleSubmit = () => {
-    // console.log("user", user);
-    // //dispatch an addUSer action with payload
-    // if (operation == "edit") dispatch(upUserAction(user));
-    // else dispatch(addUsers(user));
+    RegisterServices.createRegister(selected)
+      .then((response) => {
+        alert(`Your Successfully Registerd ${pak} Package`);
+      })
+      .catch((err) => {
+        alert("Not Registered or Select Only One");
+      });
+    handleLogout();
   };
 
   return (
@@ -91,6 +125,29 @@ const Dashboard = () => {
             value={mobile}
             disabled
           />
+        </Grid>
+
+        <Grid item xs={12}>
+          <FormControl>
+            <FormLabel id="demo-row-radio-buttons-group-label">
+              Choose Your Package
+            </FormLabel>
+            <RadioGroup
+              row
+              aria-labelledby="demo-row-radio-buttons-group-label"
+              name="row-radio-buttons-group"
+            >
+              {Array.isArray(plans) &&
+                plans.map((val, i) => (
+                  <FormControlLabel
+                    value={val.title}
+                    control={<Radio />}
+                    label={val.title}
+                    onChange={handleChange}
+                  />
+                ))}
+            </RadioGroup>
+          </FormControl>
         </Grid>
         <Grid item xs={12}>
           <Button

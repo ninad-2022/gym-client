@@ -19,6 +19,11 @@ export default {
       delete: "/contactus/",
       getAll: "/contactus",
     },
+    register: {
+      create: "/register",
+      delete: "/register/",
+      getAll: "/register",
+    },
     auth: {
       userLogin: "/auth/login",
       validateToken: "/auth/validate-token",
