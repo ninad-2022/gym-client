@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Span } from "@mui/material";
 
 const About = () => {
   return (
@@ -22,24 +22,29 @@ const About = () => {
         borderRadius="10px"
         sx={{
           boxShadow: "5px 5px 25px rgba(0,0,0,0.2)",
-          width: { xs: "400px", md: "1000px" },
+          // width: { xs: "12", md: "4" },
+          width: { lg: "80%" },
           padding: "20px",
           display: "flex",
           marginBottom: "40px",
           flexDirection: { xs: "column", md: "row" },
+          justifyContent: "space-between",
+          // backgroundColor: "#fff",
         }}
       >
-        <img
-          src="http://www.roadtofitness.in/img/r2f-interior.jpg"
-          style={{ width: "400px", height: "300px" }}
-        />
-        <Box>
+        <Box lg={4}>
+          <img
+            src="http://www.roadtofitness.in/img/r2f-interior.jpg"
+            style={{ width: "350px", height: "300px" }}
+          />
+        </Box>
+        <Box lg={8}>
           <Typography
             align="center"
             sx={{ padding: "20px", fontWeight: 800, color: "#ed563b" }}
             variant="h"
           >
-            ABOUT US
+            WHO ARE WE?
           </Typography>
           <Typography sx={{ padding: "20px" }}>
             <p
@@ -72,15 +77,17 @@ const About = () => {
         borderRadius="10px"
         sx={{
           boxShadow: "5px 5px 25px rgba(0,0,0,0.2)",
-          width: { xs: "400px", md: "1000px" },
+          // width: { xs: "12", md: "8" },
+          width: { lg: "80%" },
           padding: "20px",
           display: "flex",
           marginBottom: "40px",
           flexDirection: { xs: "column", md: "row" },
           backgroundColor: "#ed563b",
+          justifyContent: "space-between",
         }}
       >
-        <Box sx={{ color: "white" }}>
+        <Box sx={{ color: "white" }} lg={8}>
           <Typography sx={{ padding: "20px", fontWeight: 800 }} variant="h">
             FACILITIES
           </Typography>
@@ -89,7 +96,6 @@ const About = () => {
             <ul
               style={{
                 listStyle: "square",
-                paddingRight: "390px",
               }}
             >
               <li>Changing Rooms</li>
@@ -104,31 +110,41 @@ const About = () => {
             </ul>
           </Typography>
         </Box>
-        <img
-          src="https://classicgym.in/wp-content/uploads/2021/06/facilities-banner-classic-gym-1.png"
-          style={{ width: "400px", height: "300px" }}
-        />
+        <Box lg={4}>
+          <img
+            src="https://classicgym.in/wp-content/uploads/2021/06/facilities-banner-classic-gym-1.png"
+            style={{ width: "350px", height: "300px" }}
+          />
+        </Box>
       </Box>
       <Box
         mx="auto"
-        // height="400px"
         borderRadius="10px"
         sx={{
-          boxShadow: "5px 5px 25px rgba(0,0,0,0.2)",
-          width: { xs: "400px", md: "1000px" },
+          boxShadow: "5px 5px 25px rgba(0,0,0,0.5)",
+          // width: { xs: "12", md: "8" },
+          width: { lg: "80%" },
           padding: "20px",
           display: "flex",
           marginBottom: "40px",
           flexDirection: { xs: "column", md: "row" },
+          justifyContent: "space-between",
+          // backgroundColor: "#fff",
         }}
       >
-        <img
-          src="https://www.fitness-world.in/wp-content/uploads/2018/10/Blog-Banner.jpg"
-          style={{ width: "400px", height: "300px" }}
-        />
-        <Box>
+        <Box lg={4}>
+          <img
+            src="https://www.fitness-world.in/wp-content/uploads/2018/10/Blog-Banner.jpg"
+            style={{ width: "350px", height: "300px" }}
+          />
+        </Box>
+        <Box lg={8}>
           <Typography
-            sx={{ padding: "20px", fontWeight: 800, color: "#ed563b" }}
+            sx={{
+              padding: "20px",
+              fontWeight: 800,
+              color: "#ed563b",
+            }}
             variant="h"
           >
             EQUIPMENTS
@@ -154,15 +170,18 @@ const About = () => {
         borderRadius="10px"
         sx={{
           boxShadow: "5px 5px 25px rgba(0,0,0,0.2)",
-          width: { xs: "400px", md: "1000px" },
+          // width: { xs: "12", md: "8" },
+          width: { lg: "80%" },
           padding: "20px",
           display: "flex",
           marginBottom: "40px",
           flexDirection: { xs: "column", md: "row" },
+          // backgroundColor: "#000",
+          justifyContent: "space-between",
           backgroundColor: "#ed563b",
         }}
       >
-        <Box sx={{ color: "white" }}>
+        <Box sx={{ color: "white" }} lg={8}>
           <Typography sx={{ padding: "20px", fontWeight: 800 }} variant="h">
             TRAINER
           </Typography>
@@ -185,7 +204,7 @@ const About = () => {
               health, focus, strength, balance and flexibility.
             </p>
             <p>
-              Zumba Teacher : Our Zumba teacher boosts your cardio endurance,
+              Zumba Trainer : Our Zumba teacher boosts your cardio endurance,
               Tones the Body & much more with an enjoyable environment
             </p>
             <p>
@@ -194,10 +213,12 @@ const About = () => {
             </p>
           </Typography>
         </Box>
-        <img
-          src="https://thumbs.dreamstime.com/b/two-attractive-women-exercising-personal-trainers-two-attractive-women-exercising-personal-trainers-gym-122702382.jpg"
-          style={{ width: "400px", height: "300px" }}
-        />
+        <Box lg={4}>
+          <img
+            src="https://thumbs.dreamstime.com/b/two-attractive-women-exercising-personal-trainers-two-attractive-women-exercising-personal-trainers-gym-122702382.jpg"
+            style={{ width: "350px", height: "300px" }}
+          />
+        </Box>
       </Box>
       <Box
         mx="auto"
@@ -205,18 +226,24 @@ const About = () => {
         borderRadius="10px"
         sx={{
           boxShadow: "5px 5px 25px rgba(0,0,0,0.2)",
-          width: { xs: "400px", md: "1000px" },
+          // width: { xs: "12", md: "8" },
+          width: { lg: "80%" },
           padding: "20px",
           display: "flex",
           marginBottom: "40px",
           flexDirection: { xs: "column", md: "row" },
+          justifyContent: "space-between",
+          // backgroundColor: "#fff",
         }}
       >
-        <img
-          src="https://www.gmpfitness.com/wp-content/uploads/2017/12/gmp-fitness-holistic-nutrition-master.jpg"
-          style={{ width: "400px", height: "300px" }}
-        />
-        <Box>
+        <Box lg={4}>
+          <img
+            src="https://www.gmpfitness.com/wp-content/uploads/2017/12/gmp-fitness-holistic-nutrition-master.jpg"
+            // style={{ width: "400px", height: "300px" }}
+            style={{ width: "350px", height: "300px" }}
+          />
+        </Box>
+        <Box lg={8}>
           <Typography
             sx={{ padding: "20px", fontWeight: 800, color: "#ed563b" }}
             variant="h"

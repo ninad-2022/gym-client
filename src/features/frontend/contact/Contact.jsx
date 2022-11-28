@@ -82,7 +82,7 @@ const Contact = () => {
         borderRadius="10px"
         sx={{
           boxShadow: "5px 5px 25px rgba(0,0,0,0.2)",
-          width: { xs: "400px", md: "1000px" },
+          width: { lg: "80%" },
           padding: "20px",
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
@@ -107,21 +107,25 @@ const Contact = () => {
 
           <Box>
             <Typography marginLeft="10px" align="center" padding="20px">
-              Call Us - <br /> +91 9970564544
+              Call Us - <br /> +91 7775055725
             </Typography>
           </Box>
           <Box>
             <Typography marginLeft="10px" align="center" padding="20px">
               Email Us - <br />
-              <a href="mailto:dhirajdpuri@gmail.com?body=My custom mail body">
-                dhirajdpuri@gmail.com
+              <a
+                href="mailto:healthandheaven.h@gmail.com?body=Dear, Health And Heaven Fitness"
+                style={{ color: "white",textDecoration:"none" }}
+              >
+                healthandheaven.h@gmail.com
               </a>
             </Typography>
           </Box>
           <Box>
             <Typography marginLeft="10px" align="center" padding="20px">
               Address - <br />
-              Health & Heaven, Pari Company Road,Narhe, Pune-411041.
+              Health & Heaven, 2nd Floor, Patil Primus, Sasane Nagar, Hadapsar,
+              PUNE-411028
             </Typography>
           </Box>
         </Box>
@@ -212,13 +216,6 @@ const Contact = () => {
                 />
               </Grid>
               <Grid xs={12} item sx={{ display: "flex" }}>
-                {/* <Button
-                  type="submit"
-                  variant="contained"
-                  fullWidth
-                  onClick={handleSubmit}
-                  sx={{ bgcolor: "#ed563b" }}
-                > */}
                 <EnqLink onClick={handleSubmit}>
                   Send Enquiry
                   <ListItemIcon>

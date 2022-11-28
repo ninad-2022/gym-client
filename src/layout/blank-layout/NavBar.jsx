@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-
+import logo from "../../assets/Logo.png";
 import { Link, NavLink } from "react-router-dom";
 import routes from "../../shared/routes/FrontendRoutes";
 import { styled } from "@mui/styles";
@@ -65,22 +65,17 @@ const NavBar = () => {
             }}
           >
             <CusLink to="/">
-              <Typography
-                variant="h6"
+              <Box
                 noWrap
                 sx={{
                   mr: 2,
                   ml: 4,
-                  display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "#ed563b",
+                  display: { xs: "none", md: "block" },
                   textDecoration: "none",
                 }}
               >
-                LOGO
-              </Typography>
+                <img src={logo} style={{ width: "160px", height: "40px" }} />
+              </Box>
             </CusLink>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -132,22 +127,18 @@ const NavBar = () => {
               </Menu>
             </Box>
             <CusLink to="/">
-              <Typography
+              <Box
                 variant="h5"
                 noWrap
                 sx={{
                   mr: 2,
                   display: { xs: "flex", md: "none" },
                   flexGrow: 1,
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "#ed563b",
                   textDecoration: "none",
                 }}
               >
-                LOGO
-              </Typography>
+                <img src={logo} style={{ width: "130px", height: "40px" }} />
+              </Box>
             </CusLink>
             <Box sx={{ display: { xs: "none", md: "flex" }, mr: 4 }}>
               {routes.map(({ label, path }, i) => (
