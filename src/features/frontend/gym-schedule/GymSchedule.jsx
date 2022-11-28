@@ -13,9 +13,18 @@ import { hover } from "@testing-library/user-event/dist/hover";
 const GymSchedule = () => {
   const StyledTableCell = styled(TableCell)(() => ({
     [`&.${tableCellClasses.head}`]: {
+      borderTop: "1px solid #fff",
       backgroundColor: "#ed563d",
       color: "white",
     },
+
+    ":first-child": {
+      border: "1px solid #fff",
+    },
+    ":last-child": {
+      borderRight: "1px solid #fff",
+    },
+
     transition: ".5s linear",
 
     "&:hover": {
@@ -32,17 +41,8 @@ const GymSchedule = () => {
   const StyledTableRow = styled(TableRow)(() => ({
     " th": {
       backgroundColor: "#ed563d",
-      //   height: "25px",
       borderRight: "1px solid white",
     },
-    ":nth-last-child": {
-      borderRight: "10px solid #fff",
-    },
-
-    //   "&:hover": {
-    //     backgroundColor: "#ed563d",
-    //   },
-    //   // hide last border
   }));
 
   function createData(name, AM6, AM7, AM8, AM11, PM6, PM7, PM8) {
