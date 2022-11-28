@@ -1,5 +1,5 @@
 export default {
-  serverBaseURL: "http://localhost:2023",
+  serverBaseURL: "https://gym-server2.vercel.app",
   api: {
     user: {
       create: "/users",
