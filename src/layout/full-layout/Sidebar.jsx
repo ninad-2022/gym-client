@@ -23,6 +23,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SidebarRoutes from "./SidebarRoutes";
 import SidebarMenu from "./SidebarMenu";
+import logo from "../../assets/Logo.png";
 import { removeUser, selectUser } from "../../app/slices/authSlice";
 
 const drawerWidth = 240;
@@ -244,14 +245,18 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
+
+          <Box
             noWrap
-            component="div"
-            sx={{ color: "#ed563b" }}
+            sx={{
+              mr: 2,
+              ml: 4,
+              display: { xs: "none", md: "block" },
+              textDecoration: "none",
+            }}
           >
-            GymBro
-          </Typography>
+            <img src={logo} style={{ width: "160px", height: "40px" }} />
+          </Box>
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
