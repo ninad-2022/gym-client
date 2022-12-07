@@ -215,7 +215,7 @@ const About = () => {
         </Box>
         <Box lg={4}>
           <img
-            src="https://thumbs.dreamstime.com/b/two-attractive-women-exercising-personal-trainers-two-attractive-women-exercising-personal-trainers-gym-122702382.jpg"
+            src="https://img.freepik.com/free-photo/indian-man-doing-excercisses-special-equipment-gym-with-personal-trainer_1157-51755.jpg?w=740&t=st=1670437983~exp=1670438583~hmac=ec7b6cddd2dd84b8bfb07a7522b25759189d983eec1e5dd52a2fffec0d7ed53d"
             style={{ width: "350px", height: "300px" }}
           />
         </Box>
