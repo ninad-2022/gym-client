@@ -119,7 +119,7 @@ const Membership = () => {
                       fontSize: "30px",
                     }}
                   >
-                    {val.price}
+                    ₹{val.price}
                   </Typography>
 
                   <Typography variant="h7">
