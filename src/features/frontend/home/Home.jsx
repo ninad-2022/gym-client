@@ -87,6 +87,33 @@ const Home = () => {
           </Box>
         </Box>
       </Box>
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: 0,
+          right: 0,
+          width: "100%",
+          bottom: "0px",
+          display: "flex",
+          justifyContent: "end",
+          paddingRight: "4px",
+        }}
+      >
+        <span style={{ color: "#fff", paddingRight: "5px" }}>Powered by</span>
+        <span>
+          <a
+            style={{
+              textDecoration: "none",
+              color: "#ed563b",
+              fontWeight: "600",
+            }}
+            target="_blank"
+            href="https://www.primalinfosys.com/"
+          >
+            Primal Infosys
+          </a>
+        </span>
+      </Box>
     </Box>
   );
 };
